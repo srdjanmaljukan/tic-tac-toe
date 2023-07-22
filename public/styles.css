@@ -1,0 +1,93 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* CSS Resets */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+
+/* Header */
+
+.header {
+  width: 70%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+/* Scoreboard */
+
+.scoreboard {
+  max-width: 68.75rem;
+  text-align: center;
+  margin: 1.5rem auto;
+  padding: 20px 5px;
+  display: flex;
+  border: 1px solid;
+  justify-content: space-around;
+}
+
+.scoreboard p {
+  font-size: 2.5rem;
+}
+
+.scoreboard span {
+  margin: auto 1rem;
+}
+
+/* Board */
+
+.board {
+  max-width: 68.75rem;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+.grid-container {
+    display: grid;
+    margin: 20px auto;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+    border: 1px solid black;
+    gap: 0;
+    width: 21rem;
+}
+
+.grid-item {
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 2;
+}
+
+.reset {
+  border: 1px solid red;
+  
+}
+
+/* Footer */
