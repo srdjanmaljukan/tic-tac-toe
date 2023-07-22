@@ -5,7 +5,8 @@ function Scoreboard(props) {
     return (
         <div className="scoreboard">
             <p>Player X <span>{props.scoreX}</span></p>
-            <p><span>{props.scoreO}</span> Player O</p>
+            <p>Draw <span>{props.scoreDraw}</span></p>
+            <p>Player O <span>{props.scoreO}</span></p>
         </div>
     )
 }

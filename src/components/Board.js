@@ -5,7 +5,7 @@ function Board(props) {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [player, setPlayer] = useState("X");
     const [winner, setWinner] = useState(null);
-    const [highlight, setHighlight] = useState(null);
+    const [winningLine, setWinningLine] = useState([]);
 
     function checkWinner() {
         const winningLines = [
@@ -22,30 +22,32 @@ function Board(props) {
         for (let line of winningLines) {
             let [a, b, c] = line;
             if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                return board[a];
+                return [line, board[a]];
             }
         }
 
         if (!board.includes(null)) {
-            return "It's a tie.";
+            return "Draw";
         }
     }
 
-    function handleCellClick(index) {
+    function handleCellClick(e) {
+        let index = e.target.getAttribute("id")
         if (board[index] === null && winner === null) {
             let newBoard = board;
             newBoard[index] = player;
             setBoard(newBoard);
             setPlayer(player === "X" ? "O" : "X");
-            let status = checkWinner();
-            if (status === "X" || status === "O") {
-                props.updateScore(status);
-                setWinner(`Winner is player ${status}.`);
-            } else if (status) {
-                setWinner(status);
+            let gameStatus = checkWinner();
+            if (gameStatus === "Draw") {
+                setWinner("It's a draw.");
+                props.updateScore(gameStatus);
+            } else if (gameStatus) {
+                setWinner(`Winner is player ${gameStatus[1]}.`);
+                setWinningLine(gameStatus[0]);
+                props.updateScore(gameStatus[1]);
+                //highlightWinningLine()
             }
-        } else {
-            return
         }
     }
 
@@ -53,6 +55,7 @@ function Board(props) {
         setBoard(Array(9).fill(null));
         setPlayer("X");
         setWinner(null);
+        setWinningLine([]);
     }
 
     return (
@@ -63,8 +66,8 @@ function Board(props) {
                         <div
                             key={index}
                             id={index}
-                            className="grid-item"
-                            onClick={() => { handleCellClick(index) }}>
+                            className={`grid-item ${winningLine.includes(index) ? "text-white" : null}`}
+                            onClick={handleCellClick}>
                             {board[index]}
                         </div>
                     )
