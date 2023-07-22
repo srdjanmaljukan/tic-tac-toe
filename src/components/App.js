@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="p-3 mb-2 bg-dark">
       <Header />
       <Scoreboard scoreX={scoreX} scoreO={scoreO} />
       <Board updateScore={updateScoreboard} />

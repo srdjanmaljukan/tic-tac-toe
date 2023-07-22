@@ -1,51 +1,46 @@
+/* Variables */
+:root {
+  --bold-font: 700;
+  --bg-color: #242E33;
+  --primary-color: #999999;
+
+}
+
 html {
-    scroll-behavior: smooth;
-  }
-  
-  /* CSS Resets */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* border: 2px solid red; */
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  a {
-    text-decoration: none;
-    color: var(--primary-color);
-  }
-  
-  a:hover {
-    text-decoration: none;
-    color: var(--secondary-color);
-  }
+  scroll-behavior: smooth;
+  background-color: rgba(33, 37, 41, 1);
+}
+
+/* CSS Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Header */
 
 .header {
   width: 70%;
-  margin: 2rem auto;
+  margin: auto;
   text-align: center;
 }
 
 .header h1 {
   font-size: 3rem;
+  color: var(--primary-color);
 }
 
 /* Scoreboard */
 
 .scoreboard {
-  max-width: 68.75rem;
+  width: 70%;
   text-align: center;
-  margin: 1.5rem auto;
+  margin: auto;
   padding: 20px 5px;
   display: flex;
-  border: 1px solid;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  color: var(--primary-color);
 }
 
 .scoreboard p {
@@ -53,7 +48,7 @@ html {
 }
 
 .scoreboard span {
-  margin: auto 1rem;
+  margin: auto 2rem;
 }
 
 /* Board */
@@ -66,28 +61,51 @@ html {
 }
 
 .grid-container {
-    display: grid;
-    margin: 20px auto;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-flow: column;
-    border: 1px solid black;
-    gap: 0;
-    width: 21rem;
+  color: var(--primary-color);
+  display: grid;
+  margin: 20px auto;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  gap: 0;
+  width: 21rem;
 }
 
 .grid-item {
-    width: 7rem;
-    height: 7rem;
-    border: 1px solid black;
-    text-align: center;
-    font-size: 3rem;
-    line-height: 2;
+  border: 1px solid var(--primary-color);
+  font-weight: var(--bold-font);
+  width: 7rem;
+  height: 7rem;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 2.2;
 }
 
-.reset {
-  border: 1px solid red;
-  
+.board .winner {
+  color: var(--primary-color);
+  font-weight: var(--bold-font);
+}
+
+.reset button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.reset button:hover {
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color);
+  background-color: rgba(33, 37, 41, 1);
 }
 
 /* Footer */
+
+.footer {
+  max-width: 68.75rem;
+  text-align: center;
+  color: var(--primary-color);
+  margin-top: 2.5rem;
+}
+
+.footer p {
+  margin: 0;
+}

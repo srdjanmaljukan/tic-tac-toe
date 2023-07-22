@@ -10,6 +10,7 @@ function Footer() {
             <p className="copy">
                 Built by Srđan Maljukan
             </p>
+            <p>(For Educational Purposes)</p>
         </div>
     )
 }

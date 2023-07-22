@@ -5,6 +5,7 @@ function Board(props) {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [player, setPlayer] = useState("X");
     const [winner, setWinner] = useState(null);
+    const [highlight, setHighlight] = useState(null);
 
     function checkWinner() {
         const winningLines = [
@@ -69,9 +70,9 @@ function Board(props) {
                     )
                 })}
             </div>
-            {winner ? <p>{winner}</p> : null}
+            {winner ? <p className="winner">{winner}</p> : null}
             <div className="reset">
-                <button className="btn btn-primary" onClick={handleResetClick}>Reset Game</button>
+                <button className="btn btn-outline-light text-dark" onClick={handleResetClick}>Reset Game</button>
             </div>
         </div>
     )
